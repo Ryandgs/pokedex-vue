@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from 'vue-router';
 
 import PokemonList from './pages/PokemonList/PokemonList.vue';
 import PokemonView from './pages/PokemonView/PokemonView.vue';
+import TrainerProfile from './pages/TrainerProfile/TrainerProfile.vue';
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     name: 'pokemon.view',
     component: PokemonView,
   },
+  {
+    path: '/profile',
+    name: 'trainer.profile',
+    component: TrainerProfile,
+  }
 ];
 
 const router = createRouter({

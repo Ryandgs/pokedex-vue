@@ -2,9 +2,11 @@
 import { onMounted, ref, reactive } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import usePokemonStore from '@/stores/PokemonStore';
+import useProfileStore from '@/stores/ProfileStore';
 import AppButton from '@/components/AppButton/AppButton.vue';
 
 const pokemonStore = usePokemonStore();
+const profileStore = useProfileStore();
 const route = useRoute();
 const router = useRouter();
 const pokemonData = reactive({ sprites: {} });
@@ -15,6 +17,13 @@ const goBack = () => {
     name: 'pokemon.list',
   });
 };
+
+/**
+ * Add pokemon to my list
+ */
+const savePokemon = () => profileStore.savePokemon(pokemonData)
+
+const releasePokemon = () => profileStore.releasePokemon(pokemonData.id)
 
 onMounted(() => {
   isFetching.value = true;
@@ -46,6 +55,7 @@ onMounted(() => {
         <th>Type</th>
         <th>Height</th>
         <th>Sprites</th>
+        <th>Actions</th>
       </thead>
       <tbody>
         <tr>
@@ -71,12 +81,25 @@ onMounted(() => {
               :alt="pokemonData.name + ' back sprite'"
             >
           </td>
+          <td>
+            <AppButton
+              :label="'Add to my dex'"
+              @click="savePokemon"
+            />
+            <AppButton
+              :label="'Release from dex'"
+              @click="releasePokemon"
+            />
+          </td>
         </tr>
       </tbody>
     </table>
 
+    <hr />
+
     <AppButton
       :label="'Back'"
+      class="mt-1"
       @click="goBack"
     />
   </div>
@@ -86,7 +109,3 @@ onMounted(() => {
   </div>
 
 </template>
-
-<style lang="scss" scoped>
-  @import './PokemonView.scss';
-</style>

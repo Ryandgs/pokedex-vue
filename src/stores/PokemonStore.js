@@ -3,7 +3,7 @@ import * as pokeApi from '@/services';
 
 const usePokemonStore = defineStore('Pokemon', {
   state() {
-    return {};
+    return {}
   },
 
   getters: {},

@@ -6,7 +6,8 @@
     },
     "extends": [
         "plugin:vue/vue3-essential",
-        "airbnb-base"
+        "airbnb-base",
+        "prettier"
     ],
     "overrides": [
     ],
