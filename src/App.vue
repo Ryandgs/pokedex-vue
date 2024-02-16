@@ -4,9 +4,11 @@ import AppMenu from '@/components/AppMenu/AppMenu.vue';
 </script>
 
 <template>
-  <AppMenu />
-  <router-view />
-  <AppFooter />
+  <div class="container mx-auto">
+    <AppMenu />
+    <router-view />
+    <AppFooter />
+  </div>
 </template>
 
 <style lang="sass">

@@ -5,7 +5,7 @@ import ProfileDex from './components/ProfileDex/ProfileDex.vue';
 
 <template>
   <div class="trainer-profile">
-    <ProfileForm />
+    <ProfileForm class="mb-5" />
     <ProfileDex />
   </div>
 </template>

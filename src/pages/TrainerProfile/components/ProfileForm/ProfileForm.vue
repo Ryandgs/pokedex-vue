@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from 'vue'
-import useProfileStore from '@/stores/ProfileStore'
+import useProfileStore from '@/stores/Profile/ProfileStore'
 import AppButton from '@/components/AppButton/AppButton.vue';
 
 const profileStore = useProfileStore()
@@ -20,15 +20,19 @@ const submit = () => {
     @submit.prevent="submit"
   >
     <label for="name">Trainer's name: </label>
-    <input
-      v-model="form.name"
-      id="name"
-      type="text"
-    />
-    <br />
+
+    <div class="mt-2">
+      <input
+        v-model="form.name"
+        type="text"
+        id="name"
+        class="py-2 px-2 ring-1"
+      >
+    </div>
+    
     <AppButton
-      :label="'Save'"
-      class="mt-1"
+      label="Save"
+      class="mt-3"
       @click="submit"
     />
   </form>

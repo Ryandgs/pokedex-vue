@@ -4,7 +4,7 @@ const useProfileStore = defineStore("Profile", {
   state() {
     return {
       myPokemons: [],
-      name: "guest00",
+      name: "guest" + Math.floor(Math.random() * 1000),
     };
   },
 

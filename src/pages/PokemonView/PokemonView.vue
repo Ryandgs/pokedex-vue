@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted, ref, reactive } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import usePokemonStore from '@/stores/PokemonStore';
-import useProfileStore from '@/stores/ProfileStore';
+import usePokemonStore from '@/stores/Pokemon/PokemonStore';
+import useProfileStore from '@/stores/Profile/ProfileStore';
 import AppButton from '@/components/AppButton/AppButton.vue';
 
 const pokemonStore = usePokemonStore();
@@ -13,9 +13,7 @@ const pokemonData = reactive({ sprites: {} });
 const isFetching = ref(false);
 
 const goBack = () => {
-  router.push({
-    name: 'pokemon.list',
-  });
+  router.go(-1)
 };
 
 /**
@@ -49,8 +47,9 @@ onMounted(() => {
     class="pokemon"
     v-if="!isFetching"
   >
-    <table>
+    <table class="table-auto w-full">
       <thead>
+        <th>ID</th>
         <th>Name</th>
         <th>Type</th>
         <th>Height</th>
@@ -58,7 +57,8 @@ onMounted(() => {
         <th>Actions</th>
       </thead>
       <tbody>
-        <tr>
+        <tr class="capitalize">
+          <td>{{ pokemonData.id }}</td>
           <td>{{ pokemonData.name }}</td>
           <td>
             <ul>
@@ -72,40 +72,44 @@ onMounted(() => {
           </td>
           <td>{{ pokemonData.height }}</td>
           <td>
-            <img
-              :src="pokemonData.sprites.front_default"
-              :alt="pokemonData.name + ' back sprite'"
-            >
-            <img
-              :src="pokemonData.sprites.back_default"
-              :alt="pokemonData.name + ' back sprite'"
-            >
+            <div class="flex justify-center flex-wrap">
+              <img
+                :src="pokemonData.sprites.front_default"
+                :alt="pokemonData.name + ' back sprite'"
+                class="mr-5"
+              >
+              <img
+                :src="pokemonData.sprites.back_default"
+                :alt="pokemonData.name + ' back sprite'"
+              >
+            </div>
           </td>
           <td>
-            <AppButton
-              :label="'Add to my dex'"
-              @click="savePokemon"
-            />
-            <AppButton
-              :label="'Release from dex'"
-              @click="releasePokemon"
-            />
+            <div class="flex justify-center flex-wrap gap-1">
+              <AppButton
+                :label="'Add to my dex'"
+                @click="savePokemon"
+              />
+              <AppButton
+                :label="'Release from dex'"
+                @click="releasePokemon"
+              />
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
 
     <hr />
-
-    <AppButton
-      :label="'Back'"
-      class="mt-1"
-      @click="goBack"
-    />
   </div>
 
   <div v-else>
     Loading...
   </div>
 
+  <AppButton
+    :label="'Back'"
+    class="mt-1"
+    @click="goBack"
+  />
 </template>

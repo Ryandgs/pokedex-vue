@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import AppButton from '@/components/AppButton/AppButton.vue'
-import useProfileStore from '@/stores/ProfileStore'
+import useProfileStore from '@/stores/Profile/ProfileStore'
 
 const profileStore = useProfileStore()
 
@@ -23,7 +23,7 @@ const changeVisibility = () => { dexVisibility.value = !dexVisibility.value }
   <template v-if="dexVisibility">
     <table
       v-if="profileStore.myPokemons.length"
-      class="mt-1"
+      class="table-auto w-full mt-1"
     >
       <thead>
         <th>Position</th>
@@ -49,25 +49,29 @@ const changeVisibility = () => { dexVisibility.value = !dexVisibility.value }
           </td>
           <td>{{ myPokemon.height }}</td>
           <td>
-            <img
-              :src="myPokemon.sprites.front_default"
-              :alt="myPokemon.name + ' back sprite'"
-            >
-            <img
-              :src="myPokemon.sprites.back_default"
-              :alt="myPokemon.name + ' back sprite'"
-            >
+            <div class="flex justify-center">
+              <img
+                :src="myPokemon.sprites.front_default"
+                :alt="myPokemon.name + ' back sprite'"
+              >
+              <img
+                :src="myPokemon.sprites.back_default"
+                :alt="myPokemon.name + ' back sprite'"
+              >
+            </div>
           </td>
           <td>
-            <AppButton
-              :label="'Release'"
-              @click="releasePokemon(myPokemon.id)"
-            />
+            <div class="flex justify-center">
+              <AppButton
+                :label="'Release'"
+                @click="releasePokemon(myPokemon.id)"
+              />
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
   
-    <p v-if="!profileStore.myPokemons.length">There are no pokemons around</p>
+    <p v-if="!profileStore.myPokemons.length" class="pt-5">There are no pokemons around</p>
   </template>
 </template>
