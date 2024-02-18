@@ -5,6 +5,11 @@ export default {
   theme: {
     extend: {},
   },
+  theme: {
+    container: {
+      padding: '2rem',
+    }
+  },
   plugins: [],
 }
 

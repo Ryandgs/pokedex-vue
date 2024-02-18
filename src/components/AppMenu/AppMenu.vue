@@ -1,6 +1,5 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import AppButton from '../AppButton/AppButton.vue';
 import useProfileStore from '@/stores/Profile/ProfileStore';
 
 const router = useRouter();
@@ -18,19 +17,25 @@ const goTo = (route) => {
 </script>
 
 <template>
-  <div class="menu pb-5 mt-5">
+  <div class="menu mb-10 mt-5 text-center">
     <p class="menu__title underline">Welcome {{ profileStore.name }}</p>
 
     <AppButton
       class="menu__btn mt-5"
-      :label="'Home'"
+      label="Home"
       @click="goTo('pokemon.list')"
     />
 
     <AppButton
       class="menu__btn mt-5"
-      :label="'Profile'"
+      label="Profile"
       @click="goTo('trainer.profile')"
+    />
+
+    <AppButton
+      class="menu__btn mt-5"
+      label="Party"
+      @click="goTo('trainer.party')"
     />
   </div>
 </template>

@@ -40,6 +40,8 @@ const useProfileStore = defineStore("Profile", {
       if (pokeIndex > -1) this.myPokemons.splice(pokeIndex, 1)
     }
   },
+
+  persist: true,
 });
 
 export default useProfileStore;

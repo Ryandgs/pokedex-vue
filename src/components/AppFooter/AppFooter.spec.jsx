@@ -7,6 +7,6 @@ describe('AppFooter', async () => {
     const wrapper = shallowMount(AppFooter);
 
     expect(wrapper.find('p.footer').text())
-      .toBe('ryan_dgs © github/Ryandgs');
+      .toBe('ryan_dgs ©  github/Ryandgs');
   });
 });

@@ -1,11 +1,10 @@
 <script setup>
 import { ref } from 'vue'
-import AppButton from '@/components/AppButton/AppButton.vue'
 import useProfileStore from '@/stores/Profile/ProfileStore'
 
 const profileStore = useProfileStore()
 
-const dexVisibility = ref(true)
+const dexVisibility = ref(false)
 
 const releasePokemon = (pokeId) => profileStore.releasePokemon(pokeId)
 
@@ -19,6 +18,16 @@ const changeVisibility = () => { dexVisibility.value = !dexVisibility.value }
     :label="'Show/hide'"
     @click="changeVisibility"
   />
+
+  <p class="mt-5 text-yellow-800">
+    ⚠️ Warning: The section bellow will be removed soon and replaced by
+    <RouterLink
+      class="text-blue-600 underline"
+      :to="{ name: 'trainer.party' }"
+    >
+      the new PARTY MENU
+    </RouterLink>
+  </p>
 
   <template v-if="dexVisibility">
     <table

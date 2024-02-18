@@ -1,0 +1,71 @@
+@import '../../assets/sass/mixins';
+
+.emerald-layout {
+  @include custom-scroll-bar;
+
+  background-color: #D3DB6F;
+  font-family: "VPPixel";
+
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+  width: 600px;
+  padding: 0 0 0 4px;
+
+  aspect-ratio: 9/6;
+
+  .pokemons {
+    flex-grow: 1;
+    max-height: 100%;
+    overflow-y: auto;
+    padding-right: 4px;
+
+    .pokemon {
+      gap: 1rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    div {
+      display: flex;
+      gap: 6px;
+      padding-top: 6px;
+    }
+  }
+
+  &--right {
+    margin-top: 1rem;
+  }
+
+  &--bottom {
+    display: flex;
+    gap: 6px;
+    padding: 4px 0;
+    font-size: 21px;
+
+    .text-area {
+      background-color: #FFF;
+      border: 4px solid #6E696F;
+      padding: 3px 0 4px 8px;
+      border-radius: 4px;
+      flex-grow: 1;
+      align-self: center;
+    }
+    .button {
+      background-color: #6D54B3;
+      color: #FFF;
+      border: 4px solid #464664;
+      border-radius: 12px;
+      text-shadow: 1px 1px 1px #000;
+      align-self: center;
+      padding: 4px 16px;
+      cursor: pointer;
+
+      &:hover {
+        border-color: #E76545;
+      }
+    }
+  }
+}

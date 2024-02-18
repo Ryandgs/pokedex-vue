@@ -3,7 +3,6 @@ import { onMounted, ref, reactive } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import usePokemonStore from '@/stores/Pokemon/PokemonStore';
 import useProfileStore from '@/stores/Profile/ProfileStore';
-import AppButton from '@/components/AppButton/AppButton.vue';
 
 const pokemonStore = usePokemonStore();
 const profileStore = useProfileStore();

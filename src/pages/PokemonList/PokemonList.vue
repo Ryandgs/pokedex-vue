@@ -4,7 +4,6 @@ import {
 } from 'vue';
 
 import usePokemonStore from '@/stores/Pokemon/PokemonStore';
-import AppButton from '@/components/AppButton/AppButton.vue';
 import { viewPokemonWithUrl, getPageOffset, getPokemonId } from './helpers';
 import { useRoute, useRouter } from 'vue-router';
 

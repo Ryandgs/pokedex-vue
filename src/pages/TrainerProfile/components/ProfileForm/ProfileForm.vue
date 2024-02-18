@@ -1,7 +1,6 @@
 <script setup>
 import { reactive } from 'vue'
 import useProfileStore from '@/stores/Profile/ProfileStore'
-import AppButton from '@/components/AppButton/AppButton.vue';
 
 const profileStore = useProfileStore()
 

@@ -1,0 +1,84 @@
+@keyframes flick {
+  from { transform: translateY(0px); }
+  to { transform: translateY(1px); }
+}
+
+.party-pokemon {
+  background-color: #378DD7;
+  color: #FFF;
+  border: 1px solid hsl(0, 0%, 0%);
+  text-shadow: 1px 1px 1px #000;
+  padding: 12px;
+  height: 100px;
+  border-radius: 2px;
+  display: flex;
+  gap: 24px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #77CDE7;
+    border: 3px solid #DF9C81;
+
+    img {
+      animation-name: flick;
+      animation-duration: .25s;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  .card {
+    &--left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      span {
+        text-align: center;
+      }
+    }
+    img {
+      width: 54px;
+      height: 54px;
+    }
+    &__life {
+      color: #E6D173;
+      background-color: #6E696F;
+      border-radius: 4px;
+      padding: 0 4px 2px 6px;
+      font-size: 12px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+
+      .hp-bar {
+        background-color: #6E696F;
+        border: 2px solid #FFF;
+        width: 160px;
+        height: 14px;
+        border-radius: 2px;
+        margin-top: 2px;
+        margin-left: 4px;
+
+        .hp {
+          height: 100%;
+        }
+      }
+    }
+    &__types {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      font-size: 12px;
+      margin-top: 4px;
+
+      div {
+        background-color: #7DBED8;
+        padding: 1px 6px;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 21px;
+  }
+}
