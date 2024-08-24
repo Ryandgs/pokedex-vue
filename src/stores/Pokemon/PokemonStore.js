@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
-import * as pokeApi from '@/services';
+import { defineStore } from 'pinia'
+import * as pokeApi from '@/services'
 
 const usePokemonStore = defineStore('Pokemon', {
   state() {
@@ -12,6 +12,6 @@ const usePokemonStore = defineStore('Pokemon', {
     getPokemons: (params) => pokeApi.getPokemons(params),
     getPokemonById: (id) => pokeApi.getPokemonById(id),
   },
-});
+})
 
-export default usePokemonStore;
+export default usePokemonStore

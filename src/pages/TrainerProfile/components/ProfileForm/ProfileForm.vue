@@ -5,7 +5,7 @@ import useProfileStore from '@/stores/Profile/ProfileStore'
 const profileStore = useProfileStore()
 
 const form = reactive({
-  name: profileStore.name
+  name: profileStore.name,
 })
 
 const submit = () => {
@@ -14,7 +14,7 @@ const submit = () => {
 </script>
 
 <template>
-  <form 
+  <form
     class="form mt-1"
     @submit.prevent="submit"
   >
@@ -26,9 +26,9 @@ const submit = () => {
         type="text"
         id="name"
         class="py-2 px-2 ring-1"
-      >
+      />
     </div>
-    
+
     <AppButton
       label="Save"
       class="mt-3"

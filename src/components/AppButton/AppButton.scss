@@ -1,21 +1,21 @@
 .btn {
   border: none;
-  
-  background-color: #EF5350;
-  color: #FFF;
+
+  background-color: #ef5350;
+  color: #fff;
 
   padding: 8px 16px;
   margin-right: 6px;
   min-width: 82px;
-  
+
   cursor: pointer;
-  
+
   &:hover:not(:disabled) {
-    background-color: #C62828;
+    background-color: #c62828;
   }
 
   &:disabled {
-    opacity: .5;
+    opacity: 0.5;
     cursor: initial;
 
     pointer-events: none;

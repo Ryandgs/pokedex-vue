@@ -1,9 +1,9 @@
 <script setup>
-import { useRouter } from 'vue-router';
-import useProfileStore from '@/stores/Profile/ProfileStore';
+import { useRouter } from 'vue-router'
+import useProfileStore from '@/stores/Profile/ProfileStore'
 
-const router = useRouter();
-const profileStore = useProfileStore();
+const router = useRouter()
+const profileStore = useProfileStore()
 
 /**
  * Go To Route
@@ -12,8 +12,8 @@ const profileStore = useProfileStore();
 const goTo = (route) => {
   router.push({
     name: route,
-  });
-};
+  })
+}
 </script>
 
 <template>

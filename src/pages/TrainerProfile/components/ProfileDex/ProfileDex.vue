@@ -4,18 +4,20 @@ import useProfileStore from '@/stores/Profile/ProfileStore'
 
 const profileStore = useProfileStore()
 
-const dexVisibility = ref(false)
+const isDexVisible = ref(true)
 
 const releasePokemon = (pokeId) => profileStore.releasePokemon(pokeId)
 
-const changeVisibility = () => { dexVisibility.value = !dexVisibility.value }
+const changeVisibility = () => {
+  isDexVisible.value = !isDexVisible.value
+}
 </script>
 
 <template>
   <h1>My dex</h1>
 
-  <AppButton 
-    :label="'Show/hide'"
+  <AppButton
+    :label="isDexVisible ? 'Hide' : 'Show'"
     @click="changeVisibility"
   />
 
@@ -29,7 +31,7 @@ const changeVisibility = () => { dexVisibility.value = !dexVisibility.value }
     </RouterLink>
   </p>
 
-  <template v-if="dexVisibility">
+  <template v-if="isDexVisible">
     <table
       v-if="profileStore.myPokemons.length"
       class="table-auto w-full mt-1"
@@ -62,11 +64,11 @@ const changeVisibility = () => { dexVisibility.value = !dexVisibility.value }
               <img
                 :src="myPokemon.sprites.front_default"
                 :alt="myPokemon.name + ' back sprite'"
-              >
+              />
               <img
                 :src="myPokemon.sprites.back_default"
                 :alt="myPokemon.name + ' back sprite'"
-              >
+              />
             </div>
           </td>
           <td>
@@ -80,7 +82,12 @@ const changeVisibility = () => { dexVisibility.value = !dexVisibility.value }
         </tr>
       </tbody>
     </table>
-  
-    <p v-if="!profileStore.myPokemons.length" class="pt-5">There are no pokemons around</p>
+
+    <p
+      v-if="!profileStore.myPokemons.length"
+      class="pt-5"
+    >
+      There are no pokemons around
+    </p>
   </template>
 </template>

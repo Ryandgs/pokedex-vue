@@ -1,9 +1,9 @@
-import { createWebHistory, createRouter } from 'vue-router';
+import { createWebHistory, createRouter } from 'vue-router'
 
-import PokemonList from './pages/PokemonList/PokemonList.vue';
-import PokemonView from './pages/PokemonView/PokemonView.vue';
-import TrainerProfile from './pages/TrainerProfile/TrainerProfile.vue';
-import TrainerParty from './pages/TrainerParty/TrainerParty.vue';
+import PokemonList from './pages/PokemonList/PokemonList.vue'
+import PokemonView from './pages/PokemonView/PokemonView.vue'
+import TrainerProfile from './pages/TrainerProfile/TrainerProfile.vue'
+import TrainerParty from './pages/TrainerParty/TrainerParty.vue'
 
 const routes = [
   {
@@ -25,12 +25,12 @@ const routes = [
     path: '/party',
     name: 'trainer.party',
     component: TrainerParty,
-  }
-];
+  },
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-});
+})
 
-export default router;
+export default router

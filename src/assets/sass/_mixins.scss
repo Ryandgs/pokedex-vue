@@ -1,18 +1,88 @@
 @mixin custom-scroll-bar {
   ::-webkit-scrollbar {
-      width: 12px;
+    width: 12px;
   }
   /* Track */
   ::-webkit-scrollbar-track {
-      background: #F1F1F1; 
+    background: #f1f1f1;
   }
   /* Handle */
   ::-webkit-scrollbar-thumb {
-      background: #888; 
+    background: #888;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-      background: #555; 
+    background: #555;
+  }
+}
+
+@mixin types {
+  .--grass {
+    background-color: #9acd32;
+  }
+
+  .--poison {
+    background-color: #8a2be2;
+  }
+
+  .--fire {
+    background-color: #ff6347;
+  }
+
+  .--water {
+    background-color: #36b0e0;
+  }
+
+  .--electric {
+    background-color: #ffd700;
+  }
+
+  .--ice {
+    background-color: #00ced1;
+  }
+
+  .--fighting {
+    background-color: #ff8c00;
+  }
+
+  .--ground {
+    background-color: #917459;
+  }
+
+  .--flying {
+    background-color: #add8e6;
+  }
+
+  .--psychic {
+    background-color: #dda0dd;
+  }
+
+  .--bug {
+    background-color: #6b8e23;
+  }
+
+  .--rock {
+    background-color: #b9b9b9;
+  }
+
+  .--ghost {
+    background-color: #6a5acd;
+  }
+
+  .--dragon {
+    background-color: #4682b4;
+  }
+
+  .--dark {
+    background-color: #4b4b4b;
+  }
+
+  .--steel {
+    background-color: #b0c4de;
+  }
+
+  .--fairy {
+    background-color: #ffb6c1;
   }
 }

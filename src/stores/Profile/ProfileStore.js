@@ -1,17 +1,17 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
-const useProfileStore = defineStore("Profile", {
+const useProfileStore = defineStore('Profile', {
   state() {
     return {
       myPokemons: [],
-      name: "guest" + Math.floor(Math.random() * 1000),
-    };
+      name: 'guest' + Math.floor(Math.random() * 1000),
+    }
   },
 
   actions: {
     /**
      * Change triner's name
-     * @param {String} newName 
+     * @param {String} newName
      */
     updateName(newName) {
       this.name = newName
@@ -19,10 +19,11 @@ const useProfileStore = defineStore("Profile", {
 
     /**
      * Add pokemon to trainer's dex
-     * @param {Object} pokemon 
+     * @param {Object} pokemon
      */
     savePokemon(pokemon) {
-      const isAlreayOnDex = this.myPokemons.findIndex((myPokemon) => myPokemon.id === pokemon.id) > -1
+      const isAlreayOnDex =
+        this.myPokemons.findIndex((myPokemon) => myPokemon.id === pokemon.id) > -1
 
       if (!isAlreayOnDex) {
         this.myPokemons.push(pokemon)
@@ -33,15 +34,15 @@ const useProfileStore = defineStore("Profile", {
 
     /**
      * Remove pokemon from trainer's dex
-     * @param {Number} pokemonId 
+     * @param {Number} pokemonId
      */
     releasePokemon(pokemonId) {
       const pokeIndex = this.myPokemons.findIndex((myPokemon) => myPokemon.id === pokemonId)
       if (pokeIndex > -1) this.myPokemons.splice(pokeIndex, 1)
-    }
+    },
   },
 
   persist: true,
-});
+})
 
-export default useProfileStore;
+export default useProfileStore

@@ -1,11 +1,17 @@
+@import '../../../../assets/sass/mixins';
+
 @keyframes flick {
-  from { transform: translateY(0px); }
-  to { transform: translateY(1px); }
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(1px);
+  }
 }
 
 .party-pokemon {
-  background-color: #378DD7;
-  color: #FFF;
+  background-color: #378dd7;
+  color: #fff;
   border: 1px solid hsl(0, 0%, 0%);
   text-shadow: 1px 1px 1px #000;
   padding: 12px;
@@ -16,12 +22,12 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #77CDE7;
-    border: 3px solid #DF9C81;
+    background-color: #77cde7;
+    border: 3px solid #df9c81;
 
     img {
       animation-name: flick;
-      animation-duration: .25s;
+      animation-duration: 0.25s;
       animation-iteration-count: infinite;
     }
   }
@@ -41,8 +47,8 @@
       height: 54px;
     }
     &__life {
-      color: #E6D173;
-      background-color: #6E696F;
+      color: #e6d173;
+      background-color: #6e696f;
       border-radius: 4px;
       padding: 0 4px 2px 6px;
       font-size: 12px;
@@ -51,8 +57,8 @@
       align-items: center;
 
       .hp-bar {
-        background-color: #6E696F;
-        border: 2px solid #FFF;
+        background-color: #6e696f;
+        border: 2px solid #fff;
         width: 160px;
         height: 14px;
         border-radius: 2px;
@@ -71,8 +77,10 @@
       font-size: 12px;
       margin-top: 4px;
 
+      @include types;
+
       div {
-        background-color: #7DBED8;
+        background-color: #7dbed8;
         padding: 1px 6px;
       }
     }

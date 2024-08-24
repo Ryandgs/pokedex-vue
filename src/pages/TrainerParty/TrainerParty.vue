@@ -18,11 +18,14 @@ onMounted(() => {
 <template>
   <div class="emerald-layout">
     <div class="pokemons">
-      <div v-if="profileStore.myPokemons">
+      <div
+        class="pokemons-wrapper"
+        v-if="profileStore.myPokemons"
+      >
         <section class="emerald-layout--left pokemon">
           <PartyPokemon :pokemonList="leftPokemons" />
         </section>
-      
+
         <section class="emerald-layout--right pokemon">
           <PartyPokemon :pokemonList="rightPokemons" />
         </section>
@@ -31,17 +34,11 @@ onMounted(() => {
 
     <div class="emerald-layout--bottom">
       <div class="text-area">
-        {{ profileStore.name.slice(0, 10) + (profileStore.name.length > 10 ? "..." : "") }}:
-        {{
-          profileStore.myPokemons.length
-            ? 'Choose a Pokémon.'
-            : 'There are no pokemons around'
-        }}
+        {{ profileStore.name.slice(0, 10) + (profileStore.name.length > 10 ? '...' : '') }}:
+        {{ profileStore.myPokemons.length ? 'Choose a Pokémon.' : 'There are no pokemons around' }}
       </div>
       <router-link :to="{ name: 'pokemon.list' }">
-        <div class="button">
-          Cancel
-        </div>
+        <div class="button">Cancel</div>
       </router-link>
     </div>
   </div>

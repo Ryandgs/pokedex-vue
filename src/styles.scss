@@ -1,9 +1,11 @@
 @font-face {
-  font-family: "VPPixel";
+  font-family: 'VPPixel';
   src: url('/fonts/VPPixel-Simplified.otf');
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
   padding: 6px;
 }

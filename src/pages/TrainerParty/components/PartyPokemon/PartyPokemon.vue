@@ -1,12 +1,12 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 defineProps({
   pokemonList: {
     type: Array,
     default: [],
   },
-});
+})
 
 const noFlood = ref(false)
 
@@ -27,6 +27,7 @@ const playCries = (pokemonCry) => {
   if (noFlood.value || !pokemonCry) return
 
   const audio = new Audio(pokemonCry)
+  audio.volume = 0.05
   audio.play()
 
   noFlood.value = true
@@ -38,20 +39,14 @@ const playCries = (pokemonCry) => {
 
 <template>
   <div
-    v-for="(myPokemon) in pokemonList"
+    v-for="myPokemon in pokemonList"
     :key="myPokemon.id"
     class="party-pokemon"
     @click="playCries(myPokemon.cries.legacy)"
   >
-    <div
-      class="card card--left"
-    >
-      <img
-        :src="myPokemon.sprites.versions['generation-vii'].icons.front_default"
-      />
-      <span>
-        Lv. {{ parseInt(Math.random() * 80 + 1) }}
-      </span>
+    <div class="card card--left">
+      <img :src="myPokemon.sprites.versions['generation-vii'].icons.front_default" />
+      <span> Lv. {{ parseInt(Math.random() * 80 + 1) }} </span>
     </div>
     <div class="card card--right">
       <h1>{{ myPokemon.name }}</h1>
@@ -65,7 +60,13 @@ const playCries = (pokemonCry) => {
         </div>
       </div>
       <div class="card__types">
-        <div v-for="(type) in myPokemon.types" :key="type.type.name">{{ type.type.name }}</div>
+        <div
+          v-for="type in myPokemon.types"
+          :key="type.type.name"
+          :class="`--${type.type.name}`"
+        >
+          {{ type.type.name }}
+        </div>
       </div>
     </div>
   </div>

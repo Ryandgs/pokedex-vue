@@ -10,9 +10,11 @@ describe('Pokemon Store', () => {
     setActivePinia(createPinia())
     pokemonStore = usePokemonStore()
   })
-  
+
   it('Should get an array of pokemons', async () => {
-    const { data: { results } } = await pokemonStore.getPokemons()
+    const {
+      data: { results },
+    } = await pokemonStore.getPokemons()
     expect(Array.isArray(results)).toBe(true)
   })
 

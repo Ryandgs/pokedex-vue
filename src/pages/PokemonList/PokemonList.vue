@@ -1,46 +1,45 @@
 <script setup>
-import {
-  reactive, onMounted, ref, watch,
-} from 'vue';
+import { reactive, onMounted, ref, watch } from 'vue'
 
-import usePokemonStore from '@/stores/Pokemon/PokemonStore';
-import { viewPokemonWithUrl, getPageOffset, getPokemonId } from './helpers';
-import { useRoute, useRouter } from 'vue-router';
+import usePokemonStore from '@/stores/Pokemon/PokemonStore'
+import { viewPokemonWithUrl, getPageOffset, getPokemonId } from './helpers'
+import { useRoute, useRouter } from 'vue-router'
 
-const pokemonStore = usePokemonStore();
-const pokemonList = ref(null);
-const actualPage = ref(null);
-const isLoading = ref(false);
-const router = useRouter();
-const route = useRoute();
+const pokemonStore = usePokemonStore()
+const pokemonList = ref(null)
+const actualPage = ref(null)
+const isLoading = ref(false)
+const router = useRouter()
+const route = useRoute()
 const pageNavigation = ref(null)
 
 const setPokemonList = (newPage) => {
-  isLoading.value = true;
+  isLoading.value = true
 
-  pokemonStore.getPokemons({ offset: getPageOffset(newPage) })
+  pokemonStore
+    .getPokemons({ offset: getPageOffset(newPage) })
     .then(({ data }) => {
       pokemonList.value = data.results
     })
     .finally(() => {
       isLoading.value = false
-    });
-};
+    })
+}
 
 const setPage = ($event) => {
   actualPage.value = pageNavigation.value
 }
 
 watch(actualPage, (newPage) => {
-  router.replace({ query: { page: newPage }})
-  setPokemonList(newPage);
+  router.replace({ query: { page: newPage } })
+  setPokemonList(newPage)
   pageNavigation.value = newPage
-});
+})
 
 onMounted(() => {
-  if (route.query.page) return actualPage.value = Number(route.query.page)
-  return actualPage.value = 1;
-});
+  if (route.query.page) return (actualPage.value = Number(route.query.page))
+  return (actualPage.value = 1)
+})
 </script>
 
 <template>
@@ -62,7 +61,7 @@ onMounted(() => {
   <p v-if="pokemonList && pokemonList.length === 0">There are no pokemons around</p>
 
   <p class="mb-5 mt-5 font-bold">Page:</p>
-  
+
   <input
     v-model="pageNavigation"
     ref="pageInput"
@@ -71,7 +70,7 @@ onMounted(() => {
     class="px-1 ring-1"
     min="1"
     @blur="setPage"
-  >
+  />
 
   <br />
 

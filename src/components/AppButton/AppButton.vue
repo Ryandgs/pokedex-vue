@@ -5,7 +5,7 @@ defineProps({
     required: true,
   },
   disabled: Boolean,
-});
+})
 </script>
 
 <template>
@@ -20,5 +20,5 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
-  @import './AppButton.scss';
+@import './AppButton.scss';
 </style>

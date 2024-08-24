@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "types": [
-      "vite/client"
-    ],
+    "types": ["vite/client"],
     "paths": {
       "@/*": ["src/*"]
     }
-  },
+  }
 }

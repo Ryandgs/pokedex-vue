@@ -1,4 +1,4 @@
-import AppButton from '../components/AppButton/AppButton.vue';
+import AppButton from '../components/AppButton/AppButton.vue'
 
 export default {
   title: 'BaseComponents/AppButton',
@@ -6,28 +6,28 @@ export default {
   argTypes: {
     label: 'This is a button!',
   },
-};
+}
 
 const Template = (args) => ({
   components: { AppButton },
   setup() {
-    return { args };
+    return { args }
   },
   template: '<AppButton v-bind="args" />',
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   label: 'Button',
-};
+}
 
-export const AnotherTemplate = Template.bind({});
+export const AnotherTemplate = Template.bind({})
 AnotherTemplate.args = {
   label: 'I am another button :)',
-};
+}
 
-export const Disabled = Template.bind({});
+export const Disabled = Template.bind({})
 Disabled.args = {
   label: 'I am disabled :(',
   disabled: true,
-};
+}
