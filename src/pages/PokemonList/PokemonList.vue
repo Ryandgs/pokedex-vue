@@ -86,4 +86,3 @@ onMounted(() => {
     @click="actualPage += 1"
   />
 </template>
-@/stores/Pokemon/PokemonStore

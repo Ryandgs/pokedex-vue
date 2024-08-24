@@ -1,5 +1,14 @@
 @import '../.././../../assets/sass/mixins';
 
+@keyframes flick {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(5px);
+  }
+}
+
 .profileBox {
   @include custom-scroll-bar;
 
@@ -16,11 +25,71 @@
     width: 30%;
 
     .pkmnData-wrapper {
+      @include types;
+
       h1 {
+        position: relative;
+        letter-spacing: 5px;
+
+        span {
+          position: absolute;
+          padding-top: 4px;
+          left: 44px;
+          &:first-child {
+            left: 12px;
+          }
+        }
+
+        div {
+          display: inline-block;
+          margin-left: 1em;
+        }
+      }
+
+      h2 {
+        font-size: 2em;
+        border: 2px solid #000;
+        border-left: none;
+        margin-top: 12px;
+        padding: 0 12px;
       }
 
       .pkmnData {
-        img {
+        .pkmnData-image {
+          border: 2px solid #000;
+          margin-top: 8px;
+          padding: 22px 0;
+
+          img {
+            width: 100%;
+            animation-name: flick;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+          }
+        }
+
+        div {
+          margin-top: 4px;
+
+          .pkmnData-types {
+            display: flex;
+            gap: 4px;
+            font-size: 1em;
+            text-align: center;
+            justify-content: center;
+            padding-bottom: 2px;
+            div {
+              width: 70px;
+              padding: 5px 0;
+            }
+          }
+
+          p {
+            border: 2px solid #CBCBCB;
+            margin-bottom: 2px;
+            font-size: 1.5em;
+            padding: 0 12px;
+          }
         }
       }
     }
@@ -51,6 +120,13 @@
         width: auto;
         margin-bottom: 2em;
         display: inline-block;
+        cursor: pointer;
+
+        &:hover {
+          animation-name: flick;
+          animation-duration: 0.2s;
+          animation-iteration-count: infinite;
+        }
       }
     }
   }
