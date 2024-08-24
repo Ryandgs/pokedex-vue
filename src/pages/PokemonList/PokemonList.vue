@@ -2,7 +2,7 @@
 import { reactive, onMounted, ref, watch } from 'vue'
 
 import usePokemonStore from '@/stores/Pokemon/PokemonStore'
-import { viewPokemonWithUrl, getPageOffset, getPokemonId } from './helpers'
+import { viewPokemonWithUrl, getPageOffset, getPokemonId } from '@/composables/usePokemon'
 import { useRoute, useRouter } from 'vue-router'
 
 const pokemonStore = usePokemonStore()

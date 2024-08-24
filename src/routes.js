@@ -4,6 +4,7 @@ import PokemonList from './pages/PokemonList/PokemonList.vue'
 import PokemonView from './pages/PokemonView/PokemonView.vue'
 import TrainerProfile from './pages/TrainerProfile/TrainerProfile.vue'
 import TrainerParty from './pages/TrainerParty/TrainerParty.vue'
+import PokemonDex from './pages/PokemonDex/PokemonDex.vue'
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: '/party',
     name: 'trainer.party',
     component: TrainerParty,
+  },
+  {
+    path: '/dex',
+    name: 'pokemon.dex',
+    component: PokemonDex,
   },
 ]
 

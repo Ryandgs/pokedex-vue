@@ -1,0 +1,57 @@
+@import '../.././../../assets/sass/mixins';
+
+.profileBox {
+  @include custom-scroll-bar;
+
+  background-color: #f8d8c8;
+  padding: 4px;
+  width: 600px;
+  height: 460px;
+  margin: 2em auto;
+  font-family: 'VPPixel';
+  display: flex;
+  gap: 1em;
+
+  .profileBox-leftSection {
+    width: 30%;
+
+    .pkmnData-wrapper {
+      h1 {
+      }
+
+      .pkmnData {
+        img {
+        }
+      }
+    }
+  }
+
+  .profileBox-rightSection {
+    width: 70%;
+
+    .boxName {
+      background-color: #a9a9f8;
+      color: #fff;
+      text-shadow: 2px 2px 1px #000;
+      margin: 12px 32px;
+      padding: 6px 0;
+      text-align: center;
+      font-size: 1.4em;
+    }
+
+    .boxSection {
+      background-color: #e0e0a0;
+      margin: 6px;
+      height: calc(100% - 80px);
+      overflow-y: scroll;
+      padding-left: 6px;
+
+      img {
+        height: 2.9em;
+        width: auto;
+        margin-bottom: 2em;
+        display: inline-block;
+      }
+    }
+  }
+}
