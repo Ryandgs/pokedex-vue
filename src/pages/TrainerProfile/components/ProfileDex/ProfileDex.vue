@@ -43,6 +43,8 @@ const changeVisibility = () => {
               <li
                 v-for="pokeType in myPokemon.types"
                 :key="pokeType.slot"
+                :class="`--${pokeType.type.name}`"
+                class="text-neutral-50"
               >
                 {{ pokeType.type.name }}
               </li>
@@ -81,3 +83,8 @@ const changeVisibility = () => {
     </p>
   </template>
 </template>
+
+<style lang="scss" scoped>
+@import '../../../../assets/sass/mixins';
+@include types;
+</style>
