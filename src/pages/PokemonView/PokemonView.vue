@@ -53,7 +53,7 @@ watch(
 <template>
   <div
     class="pokemon"
-    v-if="pokemonData.id"
+    v-if="pokemonData.id && !isFetching"
   >
     <table class="table-auto w-full">
       <thead>
@@ -112,7 +112,12 @@ watch(
   </div>
 
   <div class="pokemon-error">
-    <div v-if="isFetching">Loading...</div>
+    <div
+      v-if="isFetching"
+      class="mt-5"
+    >
+      Loading...
+    </div>
 
     <div
       v-else-if="!pokemonData.id"
@@ -124,11 +129,13 @@ watch(
 
   <div class="pokemon-navigation mt-5 mb-5">
     <AppButton
+      :disabled="isFetching"
       label="Previous"
       class="mt-1"
       @click="goTo(-1)"
     />
     <AppButton
+      :disabled="isFetching"
       label="Next"
       class="mt-1"
       @click="goTo(1)"
