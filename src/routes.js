@@ -5,6 +5,7 @@ import PokemonView from './pages/PokemonView/PokemonView.vue'
 import TrainerProfile from './pages/TrainerProfile/TrainerProfile.vue'
 import TrainerParty from './pages/TrainerParty/TrainerParty.vue'
 import PokemonDex from './pages/PokemonDex/PokemonDex.vue'
+import PokeBattle from './pages/PokeBattle/PokeBattle.vue'
 
 const routes = [
   {
@@ -32,6 +33,11 @@ const routes = [
     name: 'pokemon.dex',
     component: PokemonDex,
   },
+  {
+    path: '/battle',
+    name: 'pokemon.battle',
+    component: PokeBattle,
+  }
 ]
 
 const router = createRouter({

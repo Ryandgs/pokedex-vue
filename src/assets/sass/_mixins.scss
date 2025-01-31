@@ -17,6 +17,17 @@
   }
 }
 
+@mixin flick {
+  @keyframes flick {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(5px);
+    }
+  }
+}
+
 @mixin types {
   .--grass {
     background-color: #9acd32;

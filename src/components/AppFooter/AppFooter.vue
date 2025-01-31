@@ -2,7 +2,7 @@
   <hr class="mt-5" />
 
   <p class="footer text-center my-5">
-    ryan_dgs ©
+    ryan_dgs © {{ new Date().getFullYear() }}
     <a
       class="text-blue-600 underline"
       href="https://github.com/Ryandgs"

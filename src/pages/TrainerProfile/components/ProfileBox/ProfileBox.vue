@@ -1,6 +1,6 @@
 <script setup>
 import useProfileStore from '@/stores/Profile/ProfileStore'
-import { getPokemonId } from '@/composables/usePokemon'
+import PokedataList from '../PokedataList/PokedataList.vue'
 import { ref } from 'vue'
 
 const profileStore = useProfileStore()
@@ -52,6 +52,30 @@ const selectedPokemon = ref(null)
       </div>
     </div>
   </div>
+
+  <PokedataList
+    v-if="selectedPokemon"
+    :data="{
+      header: ['Name', 'Base Value'],
+      body: selectedPokemon.stats.map(stat => [
+        stat.stat.name,
+        stat.base_stat,
+      ])
+    }"
+    title="Stats"
+  />
+
+  <PokedataList
+    v-if="selectedPokemon"
+    :data="{
+      header: ['Move', 'Level Learned At'],
+      body: selectedPokemon.moves.map(move => [
+        move.move.name,
+        move.version_group_details[0].level_learned_at,
+      ])
+    }"
+    title="Moves"
+  />
 </template>
 
 <style lang="scss" scoped>

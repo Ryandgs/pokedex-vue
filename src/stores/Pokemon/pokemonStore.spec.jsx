@@ -1,4 +1,3 @@
-import { describe, expect, it, beforeEach } from 'vitest'
 import { setActivePinia, createPinia } from 'pinia'
 
 import usePokemonStore from './PokemonStore'

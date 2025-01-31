@@ -43,5 +43,11 @@ const goTo = (route) => {
       label="Dex"
       @click="goTo('pokemon.dex')"
     />
+
+    <AppButton
+      class="menu__btn mt-5"
+      label="Battle"
+      @click="goTo('pokemon.battle')"
+    />
   </div>
 </template>

@@ -1,13 +1,5 @@
 @import '../../assets/sass/mixins';
-
-@keyframes flick {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(3px);
-  }
-}
+@include flick;
 
 .pokemonDex {
   @include custom-scroll-bar;

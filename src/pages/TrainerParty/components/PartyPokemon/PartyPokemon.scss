@@ -1,13 +1,5 @@
 @import '../../../../assets/sass/mixins';
-
-@keyframes flick {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(1px);
-  }
-}
+@include flick;
 
 .party-pokemon {
   background-color: #378dd7;
