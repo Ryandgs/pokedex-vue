@@ -4,9 +4,7 @@ import useProfileStore from '@/stores/Profile/ProfileStore'
 import AppButton from '@/components/AppButton/AppButton.vue'
 
 const profileStore = useProfileStore()
-
 const socket = new WebSocket('ws://localhost:8080')
-
 const battleData = ref(undefined)
 
 const sendMessage = (message) => {
@@ -16,9 +14,11 @@ const sendMessage = (message) => {
 }
 
 socket.onopen = () => {
-  sendMessage({ type: 'entry', data: {
-    name: profileStore.name,
-    dex: profileStore.myPokemons }
+  sendMessage({
+    type: 'entry',
+    data: {
+      name: profileStore.name,
+    },
   })
 }
 
@@ -31,23 +31,37 @@ socket.onmessage = (e) => {
   }
 }
 
+socket.onclose = () => {
+  battleData.value = undefined
+}
+
 const updateRooms = () => {
   sendMessage({ type: 'update' })
 }
 
 const enterRoom = (roomId) => {
-  sendMessage({ type: 'enterRoom', data: {
-    roomId: roomId,
-    user: profileStore.name
-  } })
+  sendMessage({
+    type: 'enterRoom',
+    data: {
+      roomId: roomId,
+      user: profileStore.name,
+    },
+  })
 }
 
 const leaveRoom = (roomId) => {
-  sendMessage({ type: 'leaveRoom', data: {
-    roomId: roomId,
-    user: profileStore.name
-  } })
+  sendMessage({
+    type: 'leaveRoom',
+    data: {
+      roomId: roomId,
+      user: profileStore.name,
+    },
+  })
 }
+
+onUnmounted(() => {
+  socket.close()
+})
 </script>
 
 <template>
